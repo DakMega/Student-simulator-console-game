@@ -249,9 +249,6 @@ public:
 	~Evil(){
 	}
 };
-class IncomingControl : public Evil {
-
-};
 class Player : public NPC {
 public:
 	void create(NPC* player) {

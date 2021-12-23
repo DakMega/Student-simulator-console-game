@@ -139,9 +139,17 @@ int main() {
 		}if (choice == 4) {
 			Fight(evil, firstPlayer, maxKuprin);
 		}
+		if (evil.getHealth() == 0) {
+			firstPlayer.lvlUP(currClass, 1);
+		}
 		Sleep(1000);
 	}
-	/*Evil evil2("session", 500, 10);
+	firstPlayer.healthUpdate(currClass);
+	cout << "Now, fight against the Session!" << endl;
+	Sleep(1000);
+	
+	Evil evil2("Session", 500, 10);
+	
 	while (evil2.getHealth() > 0) {
 		if (choice == 1) {
 			Fight(evil2, firstPlayer, student);
@@ -154,9 +162,13 @@ int main() {
 		}if (choice == 4) {
 			Fight(evil2, firstPlayer, maxKuprin);
 		}
+		if (evil2.getHealth() == 0) {
+			firstPlayer.lvlUP(currClass, 1);
+		}
 		Sleep(1000);
-	}*/
-	firstPlayer.lvlUP(currClass,1);
+		
+	}
+	
 	firstPlayer.healthUpdate(currClass);
 	firstPlayer.getInfo(currClass);
 	return 0;

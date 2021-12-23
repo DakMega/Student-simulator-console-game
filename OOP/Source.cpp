@@ -4,50 +4,73 @@
 #include <cmath>
 #include "class.h"
 #include <fstream>
-using namespace std;
+#include <ctime>
+#include <stdlib.h>
 
+using namespace std;
+void death() {
+	abort();
+}
 void Fight( Evil& evil, Player& firstPlayer, Student& classchoice) {
 	cout << evil.getName() << " damage you!" << endl;
-	int hitDamage = firstPlayer.getHealth(&classchoice) - evil.getDamage();
+	int hitDamage = firstPlayer.getHealth(&classchoice) - (evil.getDamage()+(-2+rand()%8));
 	firstPlayer.setDynamicHealth(&classchoice,hitDamage);
 	cout << firstPlayer.getHealth(&classchoice) << " - your health now" << endl;
 	cout << "You fight back " << evil.getName() << endl;
 	int outDamage = evil.getHealth() - firstPlayer.getDamage(&classchoice);
 	evil.setHealth(outDamage);
 	cout << evil.getHealth() << " - health of " << evil.getName() << endl;
+	if (firstPlayer.getHealth(&classchoice) <= 0) {
+		cout << "\n\n***@!YOU ARE DEAD!@***\n\n";
+		death();
+	}
 }
 void Fight( Evil& evil, Player& firstPlayer, Zaochnik& classchoice) {
 	cout << evil.getName() << " damage you!" << endl;
-	int hitDamage = firstPlayer.getHealth(&classchoice) - evil.getDamage();
+	int hitDamage = firstPlayer.getHealth(&classchoice) - (evil.getDamage() + (-2 + rand() % 8));
 	firstPlayer.setDynamicHealth(&classchoice, hitDamage);
 	cout << firstPlayer.getHealth(&classchoice) << " - your health now" << endl;
 	cout << "You fight back " << evil.getName() << endl;
 	int outDamage = evil.getHealth() - firstPlayer.getDamage(&classchoice);
 	evil.setHealth(outDamage);
 	cout << evil.getHealth() << " - health of " << evil.getName() << endl;
+	if (firstPlayer.getHealth(&classchoice) <= 0) {
+		cout << "\n\n***@!YOU ARE DEAD!@***\n\n";
+		death();
+	}
 }
 void Fight( Evil& evil, Player& firstPlayer, ForeignStudent& classchoice) {
 	cout << evil.getName() << " damage you!" << endl;
-	int hitDamage = firstPlayer.getHealth(&classchoice) - evil.getDamage();
+	int hitDamage = firstPlayer.getHealth(&classchoice) - (evil.getDamage() + (-2 + rand() % 8));
 	firstPlayer.setDynamicHealth(&classchoice, hitDamage);
 	cout << firstPlayer.getHealth(&classchoice) << " - your health now" << endl;
 	cout << "You fight back " << evil.getName() << endl;
 	int outDamage = evil.getHealth() - firstPlayer.getDamage(&classchoice);
 	evil.setHealth(outDamage);
 	cout << evil.getHealth() << " - health of " << evil.getName() << endl;
+	if (firstPlayer.getHealth(&classchoice) <= 0) {
+		cout << "\n\n***@!YOU ARE DEAD!@***\n\n";
+		death();
+	}
 }
 void Fight(Evil& evil, Player& firstPlayer,MaxKuprin& classchoice) {
 	cout << evil.getName() << " damage you!" << endl;
-	int hitDamage = firstPlayer.getHealth(&classchoice) - evil.getDamage();
+	int hitDamage = firstPlayer.getHealth(&classchoice) - (evil.getDamage() + (-2 + rand() % 8));
 	firstPlayer.setDynamicHealth(&classchoice, hitDamage);
 	cout << firstPlayer.getHealth(&classchoice) << " - your health now" << endl;
 	cout << "You fight back " << evil.getName() << endl;
 	int outDamage = evil.getHealth() - firstPlayer.getDamage(&classchoice);
 	evil.setHealth(outDamage);
 	cout << evil.getHealth() << " - health of " << evil.getName() << endl;
+	if (firstPlayer.getHealth(&classchoice) <= 0) {
+		cout << "\n\n***@!YOU ARE DEAD!@***\n\n";
+		death();
+	}
 }
 
 int main() {
+	srand(time(nullptr));
+
 	string src = "save.txt";
 	ifstream fin;
 	ofstream fout;
@@ -90,12 +113,7 @@ int main() {
 		currClass = &maxKuprin;
 		break;
 	}
-
-
-
 	}
-	//firstPlayer.getInfo(currClass);
-	//evil.getInfo();
 
 	firstPlayer.getInfo(currClass);
 	cout << "What guild are you from?\n 1 - StudClub  2 - ProfCom  3 - ActiveGroup \t";
@@ -123,10 +141,17 @@ int main() {
 	}
 
 	}
-	//firstPlayer.healthUpdate();
+
+
+
 	firstPlayer.getInfo(currClass);
 	evil.getInfo();
-	cout << "Get ready for first fight!\nIt's input control!";
+
+
+
+	cout << "****\nGet ready for first fight!\nIt's input control!\n****";
+
+
 	while (evil.getHealth() > 0) {
 		if (choice == 1) {
 			Fight(evil, firstPlayer, student);
@@ -144,12 +169,40 @@ int main() {
 		}
 		Sleep(1000);
 	}
+
 	firstPlayer.healthUpdate(currClass);
-	cout << "Now, fight against the Session!" << endl;
+
+
+
+
+	cout << "****\nNow, the time is come... fight against the attestation!\n****" << endl;
+	Evil evil2("Attestation", 500, 10);
+
+	firstPlayer.getInfo(currClass);
+	evil2.getInfo();
+
 	Sleep(1000);
+	if (choice == 1) {
+		firstPlayer.getTool(&student);
+	}
+	if (choice == 2) {
+		firstPlayer.useTrick(&zaochnik);
+	}
+	if (choice == 3) {
+		firstPlayer.useTrick(&foreignStudent);
+	}
+	if (choice == 4) {
+		bool rndSelect = rand() % 1;
+		if (rndSelect = 0) {
+			firstPlayer.useTrick(&maxKuprin);
+		}
+		else {
+			firstPlayer.getTool(&maxKuprin);
+		}
+		
+	}
 	
-	Evil evil2("Session", 500, 10);
-	
+
 	while (evil2.getHealth() > 0) {
 		if (choice == 1) {
 			Fight(evil2, firstPlayer, student);
@@ -165,11 +218,57 @@ int main() {
 		if (evil2.getHealth() == 0) {
 			firstPlayer.lvlUP(currClass, 1);
 		}
-		Sleep(1000);
-		
+		Sleep(1000);	
 	}
-	
+	firstPlayer.healthUpdate(currClass);
+
+	cout << "****\nTime has been gone... Danger! The big Zachet is coming with scary AMOGUS sounds!\n****" << endl;
+	Evil evil3("Zachet", 700, 25);
+	firstPlayer.getInfo(currClass);
+	evil3.getInfo();
+
+	if (choice == 1) {
+		firstPlayer.getTool(&student);
+	}
+	if (choice == 2) {
+		firstPlayer.useTrick(&zaochnik);
+	}
+	if (choice == 3) {
+		firstPlayer.useTrick(&foreignStudent);
+	}
+	if (choice == 4) {
+		bool rndSelect = rand() % 1;
+		if (rndSelect = 0) {
+			firstPlayer.useTrick(&maxKuprin);
+		}
+		else {
+			firstPlayer.getTool(&maxKuprin);
+		}
+
+	}
+
+	Sleep(1000);
+
+	while (evil3.getHealth() > 0) {
+		if (choice == 1) {
+			Fight(evil3, firstPlayer, student);
+		}
+		if (choice == 2) {
+			Fight(evil3, firstPlayer, zaochnik);
+		}
+		if (choice == 3) {
+			Fight(evil3, firstPlayer, foreignStudent);
+		}if (choice == 4) {
+			Fight(evil3, firstPlayer, maxKuprin);
+		}
+		if (evil3.getHealth() == 0) {
+			firstPlayer.lvlUP(currClass, 1);
+		}
+		Sleep(1000);
+	}
+
 	firstPlayer.healthUpdate(currClass);
 	firstPlayer.getInfo(currClass);
+
 	return 0;
 }

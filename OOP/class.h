@@ -39,7 +39,8 @@ public:
 		cout << " Your health now = " << dynamicHealth << endl;
 		cout << " your full health = " << health << endl;
 		cout << " Your social credits = " << lvl << endl;
-		cout << "**************************" << endl;
+		cout << "**************************\n" << endl;
+		Sleep(500);
 	}
 	int getHealth() {
 		return dynamicHealth;
@@ -58,16 +59,20 @@ public:
 	}
 	void healthUpdate() {
 		cout << "\n**************************" << endl;
-		while (this->dynamicHealth < this->health) {
-			Sleep(500);
-			this->dynamicHealth += 0.1*(this->health);
-			if (this->dynamicHealth > this->health) {
-				this->dynamicHealth = this->health;
+		bool doHill;
+		cout << "\n Do you want to get rest on your favourite sofa? 0 - no 1 - yes."<<endl;
+		cin >> doHill;
+		if (doHill) {
+			while (this->dynamicHealth < this->health) {
+				Sleep(500);
+				this->dynamicHealth += 0.1 * (this->health);
+				if (this->dynamicHealth > this->health) {
+					this->dynamicHealth = this->health;
+				}
+				cout << "Hilling, please wait..." << "\nCurrent health is " << this->dynamicHealth << endl;
+				Sleep(500);
 			}
-			cout << "Hilling, please wait..." << "\nCurrent health is " << this->dynamicHealth << endl;
-			Sleep(500);
 		}
-		
 	}
 	void lvlUP(int value) {
 		Sleep(500);
@@ -85,10 +90,8 @@ public:
 	~NPC() {}
 };
 class Student : virtual public NPC {
-private:
-	int strength;
 public:
-	string weapons[3] = { "studak","zachetka","teoretical mechanics"};
+	string tools[3] = { "studak","zachetka","teoretical mechanics"};
 	Student() {
 		student = true;
 		zaochnik = false;
@@ -97,31 +100,33 @@ public:
 
 		health = 150;
 		damage = 30;
-		strength = 50;
 		name = "Student_NULL";
 	}
-	void getWeapon() {
-		cout << "Weapons list: " << endl;
+	void getTool() {
+		cout << "Choose the tool for fight! " << endl;
+		Sleep(500);
+		cout << "Tools list: " << endl;
+		Sleep(500);
 		int i = 0;
 		for (; i < lvl; i++) {
-			cout << i << " - " << weapons[i] << endl;
+			cout << i << " - " << tools[i] << endl;
 		}
-		cout << "Select your weapon \t";
+		cout << "Select your tool \t";
 		cin >> i;
 		while (i >= lvl) {
-			cout << " This weapon is unavailiable" << endl;
+			cout << " This tool is unavailiable" << endl;
 			cout << "Select other one" << endl;
 			cin >> i;
 		}
-		cout << name << " get " << weapons[i] << endl;
+		cout << name << " get " << tools[i] << endl;
+		this->damage = (log(i+1)+1) * damage;
 	}
 	void create() override {
 		cout << "You are created Student" << endl;
 		cout << "What is your name? " << endl;
 		cin >> name;
 		getInfo();
-		cout << "Your strength = "<< strength << endl;
-		getWeapon();
+		getTool();
 	}
 	~Student() {
 	}
@@ -130,7 +135,7 @@ class Zaochnik : virtual public NPC {
 private:
 	int weakness;
 public:
-	string trick[3] = { "buy work","copy someone's work","skip lesson"};
+	string trick[3] = { "buy work","copy someone's work","good sleep tonight"};
 	Zaochnik() {
 		student = false;
 		zaochnik = true;
@@ -142,11 +147,24 @@ public:
 		weakness = 50;
 		name = "Zaochnik_NULL";
 	}
-	void castTrick() {
-		cout << "Select trick " << endl;
-		int trickNum;
-		cin >> trickNum ;
-		cout << name << " uses " << trick[trickNum] << endl;
+	void useTrick() {
+		cout << "Choose the trick for fight! " << endl;
+		Sleep(500);
+		cout << "Tricks list: " << endl;
+		Sleep(500);
+		int i = 0;
+		for (; i < lvl; i++) {
+			cout << i << " - " << trick[i] << endl;
+		}
+		cout << "Select your trick \t";
+		cin >> i;
+		while (i >= lvl) {
+			cout << " This tool is unavailiable" << endl;
+			cout << "Select other one" << endl;
+			cin >> i;
+		}
+		cout << name << " get " << trick[i] << endl;
+		this->damage = (log(i + 1) + 1) * damage;
 	}
 	void create() override {
 		cout << "You are created Zaochnik" << endl;
@@ -163,6 +181,7 @@ public:
 };
 class ForeignStudent : virtual public NPC {
 private:
+	string trick[3] = { "work of another variant","say <<Sorry, dont speak English/Russian>>","say <<I'm from Egypt>>" };
 	int distanceFromHome;
 public:
 	string Lang;
@@ -172,10 +191,29 @@ public:
 		foreignStudent = true;
 		maxKuprin = false;
 
-		health = 100;
+		health = 200;
 		damage = 40;
-		distanceFromHome = 100;
+		distanceFromHome = 3000;
 		name = "ForeignStudent_NULL";
+	}
+	void useTrick() {
+		cout << "Choose the trick for fight! " << endl;
+		Sleep(500);
+		cout << "Tricks list: " << endl;
+		Sleep(500);
+		int i = 0;
+		for (; i < lvl; i++) {
+			cout << i << " - " << trick[i] << endl;
+		}
+		cout << "Select your trick \t";
+		cin >> i;
+		while (i >= lvl) {
+			cout << " This tool is unavailiable" << endl;
+			cout << "Select other one" << endl;
+			cin >> i;
+		}
+		cout << name << " get " << trick[i] << endl;
+		this->damage = (log(i + 1) + 1) * damage;
 	}
 	void create() override {
 		cout << "You created Foreign Student" << endl;
@@ -200,8 +238,8 @@ public:
 		cout << "What is your name? " << endl;
 		cin >> name;
 		getInfo();
-		getWeapon();
-		castTrick();
+		getTool();
+		useTrick();
 	}
 	~MaxKuprin() {
 	}
@@ -225,9 +263,13 @@ public:
 		this->damage = damage;
 	}
 	void getInfo() {
+		Sleep(500);
+		cout << "\n**************************" << endl;
 		cout << "You're meet " << name << endl;
 		cout << "Damage of enemy = " << damage << endl;
 		cout << "Health of enemy = " << health << endl;
+		cout << "\n**************************" << endl;
+		Sleep(500);
 	}
 	int getDamage(){
 		return damage;
@@ -277,5 +319,14 @@ public:
 	}
 	void healthUpdate(NPC* player) {
 		player->healthUpdate();
+	}
+	void getTool(Student* player) {
+		player->getTool();
+	}
+	void useTrick(Zaochnik* player) {
+		player->useTrick();
+	}
+	void useTrick(ForeignStudent* player) {
+		player->useTrick();
 	}
 };

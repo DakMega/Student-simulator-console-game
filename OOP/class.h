@@ -36,11 +36,11 @@ public:
 		dynamicHealth = 100;
 	}
 	virtual void getInfo() {
-		cout << "**************************" << endl;
+		/*cout << "**************************" << endl;
 		cout << "Hello " << name << endl;
 		cout << " Your damage = " << damage << endl;
 		cout << " Your health = " << health << endl;
-		cout << "**************************" << endl;
+		cout << "**************************" << endl;*/
 	}
 	int getHealth() {
 		return dynamicHealth;
@@ -286,13 +286,20 @@ public:
 	void setDamage(NPC* player, int value) {
 		player->setDamage(value);
 	}
-	void getInfo(NPC* player) {
+	/*void getInfo(NPC* player) {
 		player->getInfo();
-	}
+	}*/
 	int getDamage(NPC* player) {
 		return player->getDamage();
 	}
 	int getHealth(NPC* player) {
 		return player->getHealth();
+	}
+	virtual void getInfo() {
+		cout << "**************************" << endl;
+		cout << "Hello " << name << endl;
+		cout << " Your damage = " << damage << endl;
+		cout << " Your health = " << health << endl;
+		cout << "**************************" << endl;
 	}
 };

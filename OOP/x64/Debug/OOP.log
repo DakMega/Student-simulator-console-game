@@ -1,9 +1,127 @@
 ﻿  Source.cpp
 C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(63,25): warning C4244: =: преобразование "double" в "int", возможна потеря данных
 C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(64,25): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(103,69): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(108,69): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(109,69): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(114,69): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(115,69): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-  OOP.vcxproj -> C:\Users\DakMega\Documents\GitHub\Game-C---OOP\x64\Debug\OOP.exe
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(73,39): error C2504: Player: не определен базовый класс
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(104,7): error C3668: Warrior::create: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(79,3): error C2065: warrior: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(80,3): error C2065: wizard: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(81,3): error C2065: programmer: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(82,3): error C2065: paladin: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(83,3): error C2065: technic: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(84,3): error C2065: health: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(85,3): error C2065: damage: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(87,3): error C2065: name: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(92,14): error C2065: lvl: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(97,15): error C2065: lvl: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(102,11): error C2065: name: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(107,10): error C2065: name: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(108,3): error C3861: getInfo: идентификатор не найден
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(115,38): error C2504: Player: не определен базовый класс
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(154,7): error C3668: Wizard::create: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(121,3): error C2065: warrior: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(122,3): error C2065: wizard: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(123,3): error C2065: programmer: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(124,3): error C2065: paladin: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(125,3): error C2065: technic: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(126,3): error C2065: health: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(127,3): error C2065: damage: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(129,3): error C2065: name: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(135,11): error C2065: name: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(141,14): error C2065: lvl: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(146,15): error C2065: lvl: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(151,11): error C2065: name: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(152,11): error C2065: name: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(157,10): error C2065: name: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(158,3): error C3861: getInfo: идентификатор не найден
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(167,42): error C2504: Player: не определен базовый класс
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(194,7): error C3668: Programmer::create: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(176,3): error C2065: warrior: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(177,3): error C2065: wizard: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(178,3): error C2065: programmer: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(179,3): error C2065: paladin: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(180,3): error C2065: technic: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(181,3): error C2065: health: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(182,3): error C2065: damage: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(187,3): error C2065: name: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(192,11): error C2065: name: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(197,10): error C2065: name: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(198,3): error C3861: getInfo: идентификатор не найден
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(209,3): error C2065: warrior: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(210,3): error C2065: wizard: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(211,3): error C2065: programmer: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(212,3): error C2065: paladin: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(213,3): error C2065: technic: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(218,10): error C2065: name: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(219,3): error C3861: getInfo: идентификатор не найден
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(229,3): error C2065: warrior: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(230,3): error C2065: wizard: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(231,3): error C2065: programmer: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(232,3): error C2065: paladin: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(233,3): error C2065: technic: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(238,10): error C2065: name: необъявленный идентификатор
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(239,3): error C3861: getInfo: идентификатор не найден
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(9,52): error C2664: "int Player::getHealth(NPC *)": невозможно преобразовать аргумент 1 из "Warrior *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(9,40): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(295,6): message : см. объявление "Player::getHealth"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(10,46): error C2664: "void Player::setHealth(NPC *,int)": невозможно преобразовать аргумент 1 из "Warrior *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(10,24): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(283,7): message : см. объявление "Player::setHealth"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(13,52): error C2664: "int Player::getHealth(NPC *)": невозможно преобразовать аргумент 1 из "Wizard *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(13,40): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(295,6): message : см. объявление "Player::getHealth"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(14,47): error C2664: "void Player::setHealth(NPC *,int)": невозможно преобразовать аргумент 1 из "Wizard *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(14,24): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(283,7): message : см. объявление "Player::setHealth"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(17,52): error C2664: "int Player::getHealth(NPC *)": невозможно преобразовать аргумент 1 из "Paladin *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(17,40): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(295,6): message : см. объявление "Player::getHealth"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(18,47): error C2664: "void Player::setHealth(NPC *,int)": невозможно преобразовать аргумент 1 из "Paladin *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(18,24): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(283,7): message : см. объявление "Player::setHealth"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(61,31): error C2664: "void Player::create(NPC *)": невозможно преобразовать аргумент 1 из "Warrior *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(61,23): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(277,7): message : см. объявление "Player::create"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(62,33): error C2664: "void Player::lvlUP(NPC *,int)": невозможно преобразовать аргумент 1 из "Warrior *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(62,22): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(280,7): message : см. объявление "Player::lvlUP"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(63,24): error C2440: =: невозможно преобразовать "Warrior *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(63,16): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(68,30): error C2664: "void Player::create(NPC *)": невозможно преобразовать аргумент 1 из "Wizard *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(68,23): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(277,7): message : см. объявление "Player::create"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(69,32): error C2664: "void Player::lvlUP(NPC *,int)": невозможно преобразовать аргумент 1 из "Wizard *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(69,22): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(280,7): message : см. объявление "Player::lvlUP"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(70,23): error C2440: =: невозможно преобразовать "Wizard *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(70,16): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(96,30): error C2660: Player::getInfo: функция не принимает 1 аргументов
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(298,15): message : см. объявление "Player::getInfo"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(103,67): error C2664: "int Player::getDamage(NPC *)": невозможно преобразовать аргумент 1 из "Warrior *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(103,59): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(292,6): message : см. объявление "Player::getDamage"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(103,75): error C2660: Player::setDamage: функция не принимает 1 аргументов
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(286,7): message : см. объявление "Player::setDamage"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(108,67): error C2664: "int Player::getHealth(NPC *)": невозможно преобразовать аргумент 1 из "Warrior *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(108,59): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(295,6): message : см. объявление "Player::getHealth"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(108,75): error C2660: Player::setHealth: функция не принимает 1 аргументов
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(283,7): message : см. объявление "Player::setHealth"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(109,67): error C2664: "int Player::getDamage(NPC *)": невозможно преобразовать аргумент 1 из "Warrior *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(109,59): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(292,6): message : см. объявление "Player::getDamage"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(109,75): error C2660: Player::setDamage: функция не принимает 1 аргументов
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(286,7): message : см. объявление "Player::setDamage"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(114,67): error C2664: "int Player::getDamage(NPC *)": невозможно преобразовать аргумент 1 из "Warrior *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(114,59): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(292,6): message : см. объявление "Player::getDamage"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(114,75): error C2660: Player::setDamage: функция не принимает 1 аргументов
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(286,7): message : см. объявление "Player::setDamage"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(115,67): error C2664: "int Player::getHealth(NPC *)": невозможно преобразовать аргумент 1 из "Warrior *" в "NPC *"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(115,59): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(295,6): message : см. объявление "Player::getHealth"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(115,75): error C2660: Player::setHealth: функция не принимает 1 аргументов
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(283,7): message : см. объявление "Player::setHealth"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(120,30): error C2660: Player::getInfo: функция не принимает 1 аргументов
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(298,15): message : см. объявление "Player::getInfo"
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(136,30): error C2660: Player::getInfo: функция не принимает 1 аргументов
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(298,15): message : см. объявление "Player::getInfo"

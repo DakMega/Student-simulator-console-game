@@ -12,7 +12,7 @@ protected:
 	bool student;
 	bool zaochnik;
 	bool maxKuprin;
-	bool foreighnStudent;
+	bool foreignStudent;
 	bool evil;
 	bool player;
 	int health;
@@ -24,7 +24,7 @@ public:
 	NPC() {
 		student = false;
 		zaochnik = false;
-		foreighnStudent = false;
+		foreignStudent = false;
 		maxKuprin = false;
 		evil = false;
 		cout << "NPC created" << endl;
@@ -76,7 +76,7 @@ public:
 	Student() {
 		student = true;
 		zaochnik = false;
-		foreighnStudent = false;
+		foreignStudent = false;
 		maxKuprin = false;
 
 		health = 150;
@@ -118,7 +118,7 @@ public:
 	Zaochnik() {
 		student = false;
 		zaochnik = true;
-		foreighnStudent = false;
+		foreignStudent = false;
 		maxKuprin = false;
 
 		health = 100;
@@ -162,7 +162,7 @@ public:
 	~Zaochnik() {
 	}
 };
-class ForeighnStudent : virtual public NPC {
+class ForeignStudent : virtual public NPC {
 private:
 	int skill;
 	int age;
@@ -170,10 +170,10 @@ private:
 public:
 	bool senior;
 	string codeLang;
-	ForeighnStudent() {
+	ForeignStudent() {
 		student = false;
 		zaochnik = false;
-		foreighnStudent = true;
+		foreignStudent = true;
 		maxKuprin = false;
 
 		health = 100;
@@ -182,7 +182,7 @@ public:
 		age = 32;
 		senior = true;
 		zaochnik = ((age > 29) && (senior)) ? true : false;
-		name = "ForeighnStudent_NULL";
+		name = "ForeignStudent_NULL";
 	}
 	void useCode() {
 		cout << "Select coding language to use " << endl;
@@ -190,7 +190,7 @@ public:
 		cout << name << " uses " << codeLang << endl;
 	}
 	void create() override {
-		cout << "You created Foreighn Student" << endl;
+		cout << "You created Foreign Student" << endl;
 		cout << "What is your name? " << endl;
 		cin >> name;
 		getInfo();
@@ -198,7 +198,7 @@ public:
 	int getSkill() {
 		return(skill);
 	}
-	~ForeighnStudent() {
+	~ForeignStudent() {
 	}
 };
 class MaxKuprin : public Student, public Zaochnik {
@@ -206,7 +206,7 @@ public:
 	MaxKuprin() {
 		student = false;
 		zaochnik = false;
-		foreighnStudent = false;
+		foreignStudent = false;
 		maxKuprin = true;
 
 	}

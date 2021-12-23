@@ -36,11 +36,6 @@ public:
 		dynamicHealth = 100;
 	}
 	virtual void getInfo() {
-		cout << "**************************" << endl;
-		cout << "Hello " << name << endl;
-		cout << " Your damage = " << damage << endl;
-		cout << " Your health = " << health << endl;
-		cout << "**************************" << endl;
 	}
 	int getHealth() {
 		return dynamicHealth;
@@ -268,6 +263,9 @@ public:
 	}
 	int getDamage(){
 		return damage;
+	}
+	void setHealth(int DeltaHealth) {
+		this->health = DeltaHealth;
 	}
 	~Evil(){
 	}

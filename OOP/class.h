@@ -5,9 +5,7 @@
 
 using namespace std;
 
-class NPC{// полиморфизм дублирует понятие перегрузки
-	//индефикатор доступа public (- общедоступный ) protected pvivate
-	//делигирование
+class NPC{
 protected:
 	bool student;
 	bool zaochnik;
@@ -38,6 +36,7 @@ public:
 		cout << "Hello " << name << endl;
 		cout << " Your damage = " << damage << endl;
 		cout << " Your health = " << health << endl;
+		cout << " Your social credits = " << lvl << endl;
 		cout << "**************************" << endl;
 	}
 	int getHealth() {
@@ -65,7 +64,7 @@ public:
 	void sayDynamicHealth() {
 		cout << name << " running health is " << dynamicHealth << endl;
 	}
-	virtual void create() {} //прототипная функция
+	virtual void create() {}
 	~NPC() {}
 };
 class Student : virtual public NPC {

@@ -111,9 +111,9 @@ public:
 };
 class Zaochnik : virtual public NPC {
 private:
-	int mana;
+	int weakness;
 public:
-	string spell[5] = { "fireball","aura boost","thorn hit","ice shield","earthquake"};
+	string trick[3] = { "buy work","copy someone's work","skip lesson"};
 	Zaochnik() {
 		student = false;
 		zaochnik = true;
@@ -122,41 +122,24 @@ public:
 
 		health = 100;
 		damage = 40;
-		mana = 50;
+		weakness = 50;
 		name = "Zaochnik_NULL";
 	}
-	void castSpell() {
-		cout << "Select spell " << endl;
-		int spellNum;
-		cin >> spellNum ;
-		cout << name << " uses " << spell[spellNum] << endl;
-	}
-	void learn() {
-		cout << "What spell you want to learn? " << endl;
-		cout << "Spells list: " << endl;
-		int i = 0;
-		for (; i < lvl; i++) {
-			cout << i << " - " << spell[i] << endl;
-		}
-		cout << "Select spell \t";
-		cin >> i;
-		while (i >= lvl) {
-			cout << " This spell is unavailiable" << endl;
-			cout << "Select other one" << endl;
-			cin >> i;
-		}
-		cout << name << " get " << spell[i] << endl;
-		cout << name << " learned " << spell[i] << endl;
+	void castTrick() {
+		cout << "Select trick " << endl;
+		int trickNum;
+		cin >> trickNum ;
+		cout << name << " uses " << trick[trickNum] << endl;
 	}
 	void create() override {
 		cout << "You are created Zaochnik" << endl;
 		cout << "What is your name? " << endl;
 		cin >> name;
 		getInfo();
-		cout << "Your mana = " << mana << endl;
+		cout << "Your weakness = " << weakness << endl;
 	}
-	int getMana() {
-		return mana;
+	int getWeakness() {
+		return weakness;
 	}
 	~Zaochnik() {
 	}
@@ -215,7 +198,7 @@ public:
 		cin >> name;
 		getInfo();
 		getWeapon();
-		castSpell();
+		castTrick();
 	}
 	~MaxKuprin() {
 	}
@@ -224,7 +207,7 @@ public:
 class Evil : public NPC {
 public:
 	Evil() {
-		name = "Zloday";
+		name = "EvilEvent";
 		damage = 30;
 		health = 30;
 	}
@@ -251,6 +234,9 @@ public:
 	}
 	~Evil(){
 	}
+};
+class IncomingControl : public Evil {
+
 };
 class Player : public NPC {
 public:

@@ -17,6 +17,10 @@ void Fight( Evil& evil, Player& firstPlayer, ForeignStudent& classchoice) {
 	int hitDamage = firstPlayer.getHealth(&classchoice) - evil.getDamage();
 	firstPlayer.setHealth(&classchoice, hitDamage);
 }
+void Fight(Evil& evil, Player& firstPlayer,MaxKuprin& classchoice) {
+	int hitDamage = firstPlayer.getHealth(&classchoice) - evil.getDamage();
+	firstPlayer.setHealth(&classchoice, hitDamage);
+}
 
 int main() {
 	string src = "save.txt";
@@ -51,7 +55,7 @@ int main() {
 	}
 	*/
 	cout << "Who are you?\n";
-	cout << "(1 - Student 2 - Zaochnik 3 - ForeignStudent 4 - MaxKuprin)\n";
+	cout << "(1 - Basic Student 2 - Zaochnik 3 - ForeignStudent 4 - MaxKuprin)\n";
 	int choice;
 	NPC* currClass = nullptr;
 	cin >> choice;
@@ -72,12 +76,12 @@ int main() {
 			  
 		case 3: {
 			firstPlayer.create(&foreignStudent);
-			ForeignStudent &currentClass = foreignStudent;
+			currClass = &foreignStudent;
 			break;
 		}
 		case 4: {
 			firstPlayer.create(&maxKuprin);
-			MaxKuprin &currentClass = maxKuprin;
+			currClass = &maxKuprin;
 			break;
 		}
 
@@ -87,32 +91,46 @@ int main() {
 	//firstPlayer.getInfo(currClass);
 	//evil.getInfo();
 
-	firstPlayer.getInfo(&student);
+	firstPlayer.getInfo(currClass);
 	cout << "What guild are you from?\n 1 - StudClub  2 - ProfCom  3 - ActiveGroup \t";
-	cin >> choice;
+	int group;
+	cin >> group;
 
-	switch (choice) {
+	switch (group) {
 		case 1: {
 			cout << "30% damage increase" << endl;
-			firstPlayer.setDamage(&student, (firstPlayer.getDamage(&student) * 1.3));
+			firstPlayer.setDamage(currClass, (firstPlayer.getDamage(currClass) * 1.3));
 			break;
 		}
 		case 2: {
 			cout << "50% health increase and 20% damage decrease" << endl;
-			firstPlayer.setHealth(&student, (firstPlayer.getHealth(&student) * 1.5));
-			firstPlayer.setDamage(&student, (firstPlayer.getDamage(&student) * 0.8));
+			firstPlayer.setHealth(currClass, (firstPlayer.getHealth(currClass) * 1.5));
+			firstPlayer.setDamage(currClass, (firstPlayer.getDamage(currClass) * 0.8));
 			break;
 		}
 		case 3: {
 			cout << "10% health increase and 10% damage increase" << endl;
-			firstPlayer.setDamage(&student, (firstPlayer.getDamage(&student) * 1.1));
-			firstPlayer.setHealth(&student, (firstPlayer.getHealth(&student) * 1.1));
+			firstPlayer.setDamage(currClass, (firstPlayer.getDamage(currClass) * 1.1));
+			firstPlayer.setHealth(currClass, (firstPlayer.getHealth(currClass) * 1.1));
 			break;
 		}
 
 	}
-	firstPlayer.getInfo(&student);
-	Fight(evil, firstPlayer, student);
+	firstPlayer.getInfo(currClass);
+	cout << "Get ready for first fight!\nIt's incoming control!";
+	
+	if (choice == 1) {
+		Fight(evil, firstPlayer, student);
+	}
+	if (choice == 2) {
+		Fight(evil, firstPlayer, zaochnik);
+	}
+	if (choice == 3) {
+		Fight(evil, firstPlayer, foreignStudent);
+	}if (choice == 4) {
+		Fight(evil, firstPlayer, maxKuprin);
+	}
+	
 	/*cout << "Save progress?";
 	int save;
 	cin >> save;
@@ -127,6 +145,6 @@ int main() {
 		}
 		fout.close();
 	}*/
-	firstPlayer.getInfo(&student);
+	firstPlayer.getInfo(currClass);
 	return 0;
 }

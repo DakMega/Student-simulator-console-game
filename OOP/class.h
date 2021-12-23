@@ -272,7 +272,7 @@ public:
 	~Evil(){
 	}
 };
-class Player {
+class Player : public NPC {
 public:
 	void create(NPC* player) {
 		player->create();

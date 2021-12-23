@@ -1,1 +1,9 @@
-﻿  OOP.vcxproj -> C:\Users\DakMega\Documents\OOP2latest\x64\Debug\OOP.exe
+﻿  Source.cpp
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(63,25): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\class.h(64,25): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(103,69): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(108,69): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(109,69): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(114,69): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\DakMega\Documents\GitHub\Game-C---OOP\OOP\Source.cpp(115,69): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+  OOP.vcxproj -> C:\Users\DakMega\Documents\GitHub\Game-C---OOP\x64\Debug\OOP.exe

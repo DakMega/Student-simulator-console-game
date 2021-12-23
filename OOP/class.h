@@ -70,7 +70,7 @@ public:
 	virtual void create() {} //прототипная функция
 	~NPC() {}
 };
-class Warrior : virtual public NPC {
+class Warrior : virtual public Player {
 private:
 	int strength;
 public:
@@ -112,7 +112,7 @@ public:
 	~Warrior() {
 	}
 };
-class Wizard : virtual public NPC {
+class Wizard : virtual public Player {
 private:
 	int mana;
 public:
@@ -164,7 +164,7 @@ public:
 	~Wizard() {
 	}
 };
-class Programmer : virtual public NPC {
+class Programmer : virtual public Player {
 private:
 	int skill;
 	int age;

@@ -5,15 +5,15 @@
 #include <fstream>
 using namespace std;
 
-void Fight( Evil& evil, Player& firstPlayer, Warrior& classchoice) {
+void Fight( Evil& evil, Player& firstPlayer, Student& classchoice) {
 	int hitDamage = firstPlayer.getHealth(&classchoice) - evil.getDamage();
 	firstPlayer.setHealth(&classchoice,hitDamage);
 }
-void Fight( Evil& evil, Player& firstPlayer, Wizard& classchoice) {
+void Fight( Evil& evil, Player& firstPlayer, Zaochnik& classchoice) {
 	int hitDamage = firstPlayer.getHealth(&classchoice) - evil.getDamage();
 	firstPlayer.setHealth(&classchoice, hitDamage);
 }
-void Fight( Evil& evil, Player& firstPlayer, Paladin& classchoice) {
+void Fight( Evil& evil, Player& firstPlayer, ForeignStudent& classchoice) {
 	int hitDamage = firstPlayer.getHealth(&classchoice) - evil.getDamage();
 	firstPlayer.setHealth(&classchoice, hitDamage);
 }
@@ -22,11 +22,10 @@ int main() {
 	string src = "save.txt";
 	ifstream fin;
 	ofstream fout;
-	Warrior warrior;
-	Wizard wizard;
-	Paladin paladin;
-	Programmer programmer;
-	Technic technic;
+	Student student;
+	Zaochnik zaochnik;
+	ForeignStudent foreignStudent;
+	MaxKuprin maxKuprin;
 	Player firstPlayer;
 	NPC npc;
 	Evil evil;
@@ -52,38 +51,33 @@ int main() {
 	}
 	*/
 	cout << "Who are you?\n";
-	cout << "(1 - Warrior 2 - Wizard 3 - Paladin 4 - Programmer 5 - Technic)\n";
+	cout << "(1 - Student 2 - Zaochnik 3 - ForeignStudent 4 - MaxKuprin)\n";
 	int choice;
 	NPC* currClass = nullptr;
 	cin >> choice;
 	switch (choice) {
 		case 1: {
-			firstPlayer.create(&warrior);
-			firstPlayer.lvlUP(&warrior, 4);
-			currClass = &warrior;
+			firstPlayer.create(&student);
+			firstPlayer.lvlUP(&student, 4);
+			currClass = &student;
 			break;
 		}
 			  
 		case 2: {
-			firstPlayer.create(&wizard);
-			firstPlayer.lvlUP(&wizard, 4);
-			currClass = &wizard;
+			firstPlayer.create(&zaochnik);
+			firstPlayer.lvlUP(&zaochnik, 4);
+			currClass = &zaochnik;
 			break;
 		}
 			/*  
 		case 3: {
-			firstPlayer.create(&paladin);
-			Paladin &currentClass = paladin;
+			firstPlayer.create(&foreignStudent);
+			ForeignStudent &currentClass = foreignStudent;
 			break;
 		}
 		case 4: {
-			firstPlayer.create(&programmer);
-			Programmer &currentClass = programmer;
-			break;
-		}
-		case 5: {
-			firstPlayer.create(&technic);
-			Technic &currentClass = technic;
+			firstPlayer.create(&maxKuprin);
+			MaxKuprin &currentClass = maxKuprin;
 			break;
 		}
 
@@ -93,32 +87,32 @@ int main() {
 	//firstPlayer.getInfo(currClass);
 	//evil.getInfo();
 
-	firstPlayer.getInfo(&warrior);
+	firstPlayer.getInfo(&student);
 	cout << "What guild are you from?\n 1 - Aggressors  2 - Scavengers  3 - Farlanders \t";
 	cin >> choice;
 
 	switch (choice) {
 		case 1: {
 			cout << "30% damage increase" << endl;
-			firstPlayer.setDamage(&warrior, (firstPlayer.getDamage(&warrior) * 1.3));
+			firstPlayer.setDamage(&student, (firstPlayer.getDamage(&student) * 1.3));
 			break;
 		}
 		case 2: {
 			cout << "50% health increase and 20% damage decrease" << endl;
-			firstPlayer.setHealth(&warrior, (firstPlayer.getHealth(&warrior) * 1.5));
-			firstPlayer.setDamage(&warrior, (firstPlayer.getDamage(&warrior) * 0.8));
+			firstPlayer.setHealth(&student, (firstPlayer.getHealth(&student) * 1.5));
+			firstPlayer.setDamage(&student, (firstPlayer.getDamage(&student) * 0.8));
 			break;
 		}
 		case 3: {
 			cout << "10% health increase and 10% damage increase" << endl;
-			firstPlayer.setDamage(&warrior, (firstPlayer.getDamage(&warrior) * 1.1));
-			firstPlayer.setHealth(&warrior, (firstPlayer.getHealth(&warrior) * 1.1));
+			firstPlayer.setDamage(&student, (firstPlayer.getDamage(&student) * 1.1));
+			firstPlayer.setHealth(&student, (firstPlayer.getHealth(&student) * 1.1));
 			break;
 		}
 
 	}
-	firstPlayer.getInfo(&warrior);
-	Fight(evil, firstPlayer, warrior);
+	firstPlayer.getInfo(&student);
+	Fight(evil, firstPlayer, student);
 	/*cout << "Save progress?";
 	int save;
 	cin >> save;
@@ -133,6 +127,6 @@ int main() {
 		}
 		fout.close();
 	}*/
-	firstPlayer.getInfo(&warrior);
+	firstPlayer.getInfo(&student);
 	return 0;
 }

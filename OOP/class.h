@@ -72,7 +72,7 @@ class Student : virtual public NPC {
 private:
 	int strength;
 public:
-	string weapons[5] = { "fists","knife","sword","pistol","rifle" };
+	string weapons[3] = { "studak","zachetka","teoretical mechanics"};
 	Student() {
 		student = true;
 		zaochnik = false;

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <set>
 #include <cmath>
+#include "playableClasses.h"
 
 using namespace std;
 

@@ -3,6 +3,8 @@
 #include <iostream>
 #include <set>
 #include <cmath>
+using namespace std;
+
 class Student : virtual public NPC {
 private:
 	int strength;

@@ -3,6 +3,9 @@
 #include <iostream>
 #include <set>
 #include <cmath>
+
+using namespace std;
+
 class Evil : public NPC {
 public:
 	Evil() {

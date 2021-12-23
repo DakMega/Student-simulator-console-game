@@ -29,7 +29,7 @@ int main() {
 	Player firstPlayer;
 	NPC npc;
 	Evil evil;
-	/*cout << "Hello, player \nGet rest beside the fire\n";
+	/*cout << "Hello, student \nGet rest beside the fire\n";
 	cout << "You are one of the heroes, I guess?\n";
 	cout << "Do you remember your story?\n";
 	int answer;
@@ -69,7 +69,7 @@ int main() {
 			currClass = &zaochnik;
 			break;
 		}
-			/*  
+			  
 		case 3: {
 			firstPlayer.create(&foreignStudent);
 			ForeignStudent &currentClass = foreignStudent;
@@ -82,13 +82,13 @@ int main() {
 		}
 
 
-		*/
+		
 	}
 	//firstPlayer.getInfo(currClass);
 	//evil.getInfo();
 
 	firstPlayer.getInfo(&student);
-	cout << "What guild are you from?\n 1 - Aggressors  2 - Scavengers  3 - Farlanders \t";
+	cout << "What guild are you from?\n 1 - StudClub  2 - ProfCom  3 - ActiveGroup \t";
 	cin >> choice;
 
 	switch (choice) {

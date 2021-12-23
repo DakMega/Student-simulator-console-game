@@ -1,4 +1,5 @@
 #pragma once
+#include <Windows.h>
 #include <iostream>
 #include <set>
 #include <cmath>
@@ -25,17 +26,17 @@ public:
 		foreignStudent = false;
 		maxKuprin = false;
 		evil = false;
-		cout << "NPC created" << endl;
 		health = 100;
 		damage = 1;
 		lvl = 1;
-		dynamicHealth = 100;
+		dynamicHealth = health;
 	}
 	virtual void getInfo() {
-		cout << "**************************" << endl;
+		cout << "\n**************************" << endl;
 		cout << "Hello " << name << endl;
 		cout << " Your damage = " << damage << endl;
-		cout << " Your health = " << health << endl;
+		cout << " Your health now = " << dynamicHealth << endl;
+		cout << " your full health = " << health << endl;
 		cout << " Your social credits = " << lvl << endl;
 		cout << "**************************" << endl;
 	}
@@ -48,18 +49,32 @@ public:
 	void setHealth(int DeltaHealth) {
 		this->health = DeltaHealth;
 	}
+	void setDynamicHealth(int DeltaHealth) {
+		this->dynamicHealth = DeltaHealth;
+	}
 	void setDamage(int DeltaDamage) {
 		this->damage = DeltaDamage;
 	}
 	void healthUpdate() {
-		this->dynamicHealth = health;
-	} // внимательно!
+		cout << "\n**************************" << endl;
+		while (this->dynamicHealth < this->health) {
+			Sleep(500);
+			this->dynamicHealth += 0.1*(this->health);
+			if (this->dynamicHealth > this->health) {
+				this->dynamicHealth = this->health;
+			}
+			cout << "Hilling, please wait..." << "\nCurrent health is " << this->dynamicHealth << endl;
+			Sleep(500);
+		}
+		
+	}
 	void lvlUP(int value) {
+		cout << "\n**************************"<<endl;
 		lvl += value;
-		cout << "LVL UP to " << lvl << " !" << endl;
+		cout << "Congratulations! LVL UP to " << lvl << " !" << endl;
 		this->health = health * (log(lvl) + 1);
 		this->damage = damage * (log(lvl) + 1);
-		this->dynamicHealth = health;
+		cout << "**************************" << endl;
 	}
 	void sayDynamicHealth() {
 		cout << name << " running health is " << dynamicHealth << endl;
@@ -146,12 +161,9 @@ public:
 };
 class ForeignStudent : virtual public NPC {
 private:
-	int skill;
-	int age;
-	bool zaochnik;
+	int distanceFromHome;
 public:
-	bool senior;
-	string codeLang;
+	string Lang;
 	ForeignStudent() {
 		student = false;
 		zaochnik = false;
@@ -160,25 +172,14 @@ public:
 
 		health = 100;
 		damage = 40;
-		skill = 1000;
-		age = 32;
-		senior = true;
-		zaochnik = ((age > 29) && (senior)) ? true : false;
+		distanceFromHome = 100;
 		name = "ForeignStudent_NULL";
-	}
-	void useCode() {
-		cout << "Select coding language to use " << endl;
-		cin >> codeLang;
-		cout << name << " uses " << codeLang << endl;
 	}
 	void create() override {
 		cout << "You created Foreign Student" << endl;
 		cout << "What is your name? " << endl;
 		cin >> name;
 		getInfo();
-	}
-	int getSkill() {
-		return(skill);
 	}
 	~ForeignStudent() {
 	}
@@ -229,8 +230,19 @@ public:
 	int getDamage(){
 		return damage;
 	}
+	int getHealth() {
+		return health;
+	}
 	void setHealth(int DeltaHealth) {
-		this->health = DeltaHealth;
+		if (DeltaHealth < 0) {
+			this->health = 0;
+		}
+		else {
+			this->health = DeltaHealth;
+		}
+	}
+	string getName() {
+		return name;
 	}
 	~Evil(){
 	}
@@ -249,6 +261,9 @@ public:
 	void setHealth(NPC* player, int value) {
 		player->setHealth(value);
 	}
+	void setDynamicHealth(NPC* player, int value) {
+		player->setDynamicHealth(value);
+	}
 	void setDamage(NPC* player, int value) {
 		player->setDamage(value);
 	}
@@ -260,5 +275,8 @@ public:
 	}
 	int getHealth(NPC* player) {
 		return player->getHealth();
+	}
+	void healthUpdate(NPC* player) {
+		player->healthUpdate();
 	}
 };

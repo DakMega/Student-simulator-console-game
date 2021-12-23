@@ -1,4 +1,5 @@
 #include <iostream>
+#include <Windows.h>
 #include <set>
 #include <cmath>
 #include "class.h"
@@ -6,8 +7,14 @@
 using namespace std;
 
 void Fight( Evil& evil, Player& firstPlayer, Student& classchoice) {
+	cout << evil.getName() << " damage you!" << endl;
 	int hitDamage = firstPlayer.getHealth(&classchoice) - evil.getDamage();
-	firstPlayer.setHealth(&classchoice,hitDamage);
+	firstPlayer.setDynamicHealth(&classchoice,hitDamage);
+	cout << firstPlayer.getHealth(&classchoice) << " - your health now" << endl;
+	cout << "You fight back " << evil.getName() << endl;
+	int outDamage = evil.getHealth() - firstPlayer.getDamage(&classchoice);
+	evil.setHealth(outDamage);
+	cout << evil.getHealth() << " - health of " << evil.getName() << endl;
 }
 void Fight( Evil& evil, Player& firstPlayer, Zaochnik& classchoice) {
 	int hitDamage = firstPlayer.getHealth(&classchoice) - evil.getDamage();
@@ -62,14 +69,12 @@ int main() {
 	switch (choice) {
 		case 1: {
 			firstPlayer.create(&student);
-			firstPlayer.lvlUP(&student, 4);
 			currClass = &student;
 			break;
 		}
 			  
 		case 2: {
 			firstPlayer.create(&zaochnik);
-			firstPlayer.lvlUP(&zaochnik, 4);
 			currClass = &zaochnik;
 			break;
 		}
@@ -90,7 +95,7 @@ int main() {
 	}
 	//firstPlayer.getInfo(currClass);
 	//evil.getInfo();
-
+	
 	firstPlayer.getInfo(currClass);
 	cout << "What guild are you from?\n 1 - StudClub  2 - ProfCom  3 - ActiveGroup \t";
 	int group;
@@ -116,10 +121,27 @@ int main() {
 		}
 
 	}
+	//firstPlayer.healthUpdate();
 	firstPlayer.getInfo(currClass);
+	evil.getInfo();
 	cout << "Get ready for first fight!\nIt's incoming control!";
-	
-	if (choice == 1) {
+	while (evil.getHealth() > 0) {
+		if (choice == 1) {
+			Fight(evil, firstPlayer, student);
+		}
+		if (choice == 2) {
+			Fight(evil, firstPlayer, zaochnik);
+		}
+		if (choice == 3) {
+			Fight(evil, firstPlayer, foreignStudent);
+		}if (choice == 4) {
+			Fight(evil, firstPlayer, maxKuprin);
+		}
+	}
+
+	firstPlayer.lvlUP(currClass,2);
+	firstPlayer.healthUpdate(currClass);
+	/*if (choice == 1) {
 		Fight(evil, firstPlayer, student);
 	}
 	if (choice == 2) {
@@ -129,7 +151,7 @@ int main() {
 		Fight(evil, firstPlayer, foreignStudent);
 	}if (choice == 4) {
 		Fight(evil, firstPlayer, maxKuprin);
-	}
+	}*/
 	
 	/*cout << "Save progress?";
 	int save;

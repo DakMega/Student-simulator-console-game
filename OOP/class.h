@@ -9,11 +9,10 @@ class NPC{// полиморфизм дублирует понятие перегрузки
 	//индефикатор доступа public (- общедоступный ) protected pvivate
 	//делигирование
 protected:
-	bool warrior;
-	bool wizard;
-	bool paladin;
-	bool programmer;
-	bool technic;
+	bool student;
+	bool zaochnik;
+	bool maxKuprin;
+	bool foreighnStudent;
 	bool evil;
 	bool player;
 	int health;
@@ -23,11 +22,10 @@ protected:
 	string name;
 public:
 	NPC() {
-		warrior = false;
-		wizard = false;
-		programmer = false;
-		paladin = false;
-		technic = false;
+		student = false;
+		zaochnik = false;
+		foreighnStudent = false;
+		maxKuprin = false;
 		evil = false;
 		cout << "NPC created" << endl;
 		health = 100;
@@ -70,21 +68,21 @@ public:
 	virtual void create() {} //прототипная функция
 	~NPC() {}
 };
-class Warrior : virtual public NPC {
+class Student : virtual public NPC {
 private:
 	int strength;
 public:
 	string weapons[5] = { "fists","knife","sword","pistol","rifle" };
-	Warrior() {
-		warrior = true;
-		wizard = false;
-		programmer = false;
-		paladin = false;
-		technic = false;
+	Student() {
+		student = true;
+		zaochnik = false;
+		foreighnStudent = false;
+		maxKuprin = false;
+
 		health = 150;
 		damage = 30;
 		strength = 50;
-		name = "Warrior_NULL";
+		name = "Student_NULL";
 	}
 	void getWeapon() {
 		cout << "Weapons list: " << endl;
@@ -102,31 +100,31 @@ public:
 		cout << name << " get " << weapons[i] << endl;
 	}
 	void create() override {
-		cout << "You are created Warrior" << endl;
+		cout << "You are created Student" << endl;
 		cout << "What is your name? " << endl;
 		cin >> name;
 		getInfo();
 		cout << "Your strength = "<< strength << endl;
 		getWeapon();
 	}
-	~Warrior() {
+	~Student() {
 	}
 };
-class Wizard : virtual public NPC {
+class Zaochnik : virtual public NPC {
 private:
 	int mana;
 public:
 	string spell[5] = { "fireball","aura boost","thorn hit","ice shield","earthquake"};
-	Wizard() {
-		warrior = false;
-		wizard = true;
-		programmer = false;
-		paladin = false;
-		technic = false;
+	Zaochnik() {
+		student = false;
+		zaochnik = true;
+		foreighnStudent = false;
+		maxKuprin = false;
+
 		health = 100;
 		damage = 40;
 		mana = 50;
-		name = "Wizard_NULL";
+		name = "Zaochnik_NULL";
 	}
 	void castSpell() {
 		cout << "Select spell " << endl;
@@ -152,7 +150,7 @@ public:
 		cout << name << " learned " << spell[i] << endl;
 	}
 	void create() override {
-		cout << "You are created Wizard" << endl;
+		cout << "You are created Zaochnik" << endl;
 		cout << "What is your name? " << endl;
 		cin >> name;
 		getInfo();
@@ -161,30 +159,30 @@ public:
 	int getMana() {
 		return mana;
 	}
-	~Wizard() {
+	~Zaochnik() {
 	}
 };
-class Programmer : virtual public NPC {
+class ForeighnStudent : virtual public NPC {
 private:
 	int skill;
 	int age;
-	bool wizardry;
+	bool zaochnik;
 public:
 	bool senior;
 	string codeLang;
-	Programmer() {
-		warrior = false;
-		wizard = false;
-		programmer = true;
-		paladin = false;
-		technic = false;
+	ForeighnStudent() {
+		student = false;
+		zaochnik = false;
+		foreighnStudent = true;
+		maxKuprin = false;
+
 		health = 100;
 		damage = 40;
 		skill = 1000;
 		age = 32;
 		senior = true;
-		wizardry = ((age > 29) && (senior)) ? true : false;
-		name = "Programmer_NULL";
+		zaochnik = ((age > 29) && (senior)) ? true : false;
+		name = "ForeighnStudent_NULL";
 	}
 	void useCode() {
 		cout << "Select coding language to use " << endl;
@@ -192,7 +190,7 @@ public:
 		cout << name << " uses " << codeLang << endl;
 	}
 	void create() override {
-		cout << "You created Programmer" << endl;
+		cout << "You created Foreighn Student" << endl;
 		cout << "What is your name? " << endl;
 		cin >> name;
 		getInfo();
@@ -200,50 +198,30 @@ public:
 	int getSkill() {
 		return(skill);
 	}
-	~Programmer() {
+	~ForeighnStudent() {
 	}
 };
-class Paladin : public Warrior, public Wizard {
+class MaxKuprin : public Student, public Zaochnik {
 public:
-	Paladin() {
-		warrior = false;
-		wizard = false;
-		programmer = false;
-		paladin = true;
-		technic = false;
+	MaxKuprin() {
+		student = false;
+		zaochnik = false;
+		foreighnStudent = false;
+		maxKuprin = true;
+
 	}
 	void create() override {
-		cout << "You've created Paladin" << endl;
+		cout << "You've created Max Kuprin" << endl;
 		cout << "What is your name? " << endl;
 		cin >> name;
 		getInfo();
 		getWeapon();
 		castSpell();
 	}
-	~Paladin() {
+	~MaxKuprin() {
 	}
 };
-class Technic : public Paladin, Programmer {
-public:
-	Technic() {
-		warrior = false;
-		wizard = false;
-		programmer = false;
-		paladin = false;
-		technic = true;
-	}
-	void create() override {
-		cout << "You've created Technic" << endl;
-		cout << "What is your name? " << endl;
-		cin >> name;
-		getInfo();
-		getWeapon();
-		castSpell();
-		useCode();
-	}
-	~Technic() {
-	}
-};
+
 class Evil : public NPC {
 public:
 	Evil() {

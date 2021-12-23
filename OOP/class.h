@@ -91,7 +91,7 @@ public:
 };
 class Student : virtual public NPC {
 public:
-	string tools[3] = { "studak","zachetka","teoretical mechanics"};
+	string tools[4] = { "studak","zachetka","teoretical mechanics","solderer"};
 	Student() {
 		student = true;
 		zaochnik = false;
@@ -135,7 +135,7 @@ class Zaochnik : virtual public NPC {
 private:
 	int weakness;
 public:
-	string trick[3] = { "buy work","copy someone's work","good sleep tonight"};
+	string trick[4] = { "buy work","copy someone's work","good sleep tonight","energos"};
 	Zaochnik() {
 		student = false;
 		zaochnik = true;
@@ -171,6 +171,7 @@ public:
 		cout << "What is your name? " << endl;
 		cin >> name;
 		getInfo();
+		useTrick();
 		cout << "Your weakness = " << weakness << endl;
 	}
 	int getWeakness() {
@@ -181,7 +182,7 @@ public:
 };
 class ForeignStudent : virtual public NPC {
 private:
-	string trick[3] = { "work of another variant","say <<Sorry, dont speak English/Russian>>","say <<I'm from Egypt>>" };
+	string trick[4] = { "work of another variant","say <<Sorry, dont speak English/Russian>>","say <<I'm from Egypt>>","<<Please, give me second chance>>"};
 	int distanceFromHome;
 public:
 	string Lang;
@@ -220,6 +221,7 @@ public:
 		cout << "What is your name? " << endl;
 		cin >> name;
 		getInfo();
+		useTrick();
 	}
 	~ForeignStudent() {
 	}

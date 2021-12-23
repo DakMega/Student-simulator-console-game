@@ -147,10 +147,11 @@ int main() {
 	firstPlayer.getInfo(currClass);
 	evil.getInfo();
 
-
+	Sleep(100);
 
 	cout << "****\nGet ready for first fight!\nIt's input control!\n****";
 
+	Sleep(1000);
 
 	while (evil.getHealth() > 0) {
 		if (choice == 1) {
@@ -172,16 +173,16 @@ int main() {
 
 	firstPlayer.healthUpdate(currClass);
 
-
+	Sleep(100);
 
 
 	cout << "****\nNow, the time is come... fight against the attestation!\n****" << endl;
+	Sleep(100);
 	Evil evil2("Attestation", 500, 10);
 
 	firstPlayer.getInfo(currClass);
 	evil2.getInfo();
 
-	Sleep(1000);
 	if (choice == 1) {
 		firstPlayer.getTool(&student);
 	}
@@ -201,7 +202,8 @@ int main() {
 		}
 		
 	}
-	
+
+	Sleep(1000);
 
 	while (evil2.getHealth() > 0) {
 		if (choice == 1) {
@@ -221,7 +223,7 @@ int main() {
 		Sleep(1000);	
 	}
 	firstPlayer.healthUpdate(currClass);
-
+	Sleep(100);
 	cout << "****\nTime has been gone... Danger! The big Zachet is coming with scary AMOGUS sounds!\n****" << endl;
 	Evil evil3("Zachet", 700, 25);
 	firstPlayer.getInfo(currClass);
@@ -268,7 +270,58 @@ int main() {
 	}
 
 	firstPlayer.healthUpdate(currClass);
+
+	Sleep(100);
+
+	cout << "\nOH NO! The very large SUETA is coming - its SESSION! Just try to stay alive!!!";
+	Evil evil4("SESSION", 1500, 100);
 	firstPlayer.getInfo(currClass);
+	evil4.getInfo();
+
+	if (choice == 1) {
+		firstPlayer.getTool(&student);
+	}
+	if (choice == 2) {
+		firstPlayer.useTrick(&zaochnik);
+	}
+	if (choice == 3) {
+		firstPlayer.useTrick(&foreignStudent);
+	}
+	if (choice == 4) {
+		bool rndSelect = rand() % 1;
+		if (rndSelect = 0) {
+			firstPlayer.useTrick(&maxKuprin);
+		}
+		else {
+			firstPlayer.getTool(&maxKuprin);
+		}
+
+	}
+
+	Sleep(1000);
+
+	while (evil4.getHealth() > 0) {
+		if (choice == 1) {
+			Fight(evil4, firstPlayer, student);
+		}
+		if (choice == 2) {
+			Fight(evil4, firstPlayer, zaochnik);
+		}
+		if (choice == 3) {
+			Fight(evil4, firstPlayer, foreignStudent);
+		}if (choice == 4) {
+			Fight(evil4, firstPlayer, maxKuprin);
+		}
+		if (evil4.getHealth() == 0) {
+			firstPlayer.lvlUP(currClass, 1);
+		}
+		Sleep(1000);
+	}
+
+	firstPlayer.getInfo(currClass);
+	cout << "Wow! Congratulations! You still alive! You won!";
+
+
 
 	return 0;
 }

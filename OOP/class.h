@@ -32,6 +32,7 @@ public:
 		dynamicHealth = health;
 	}
 	virtual void getInfo() {
+		Sleep(500);
 		cout << "\n**************************" << endl;
 		cout << "Hello " << name << endl;
 		cout << " Your damage = " << damage << endl;
@@ -69,6 +70,7 @@ public:
 		
 	}
 	void lvlUP(int value) {
+		Sleep(500);
 		cout << "\n**************************"<<endl;
 		lvl += value;
 		cout << "Congratulations! LVL UP to " << lvl << " !" << endl;

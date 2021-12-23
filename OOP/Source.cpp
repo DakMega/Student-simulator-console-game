@@ -17,16 +17,34 @@ void Fight( Evil& evil, Player& firstPlayer, Student& classchoice) {
 	cout << evil.getHealth() << " - health of " << evil.getName() << endl;
 }
 void Fight( Evil& evil, Player& firstPlayer, Zaochnik& classchoice) {
+	cout << evil.getName() << " damage you!" << endl;
 	int hitDamage = firstPlayer.getHealth(&classchoice) - evil.getDamage();
-	firstPlayer.setHealth(&classchoice, hitDamage);
+	firstPlayer.setDynamicHealth(&classchoice, hitDamage);
+	cout << firstPlayer.getHealth(&classchoice) << " - your health now" << endl;
+	cout << "You fight back " << evil.getName() << endl;
+	int outDamage = evil.getHealth() - firstPlayer.getDamage(&classchoice);
+	evil.setHealth(outDamage);
+	cout << evil.getHealth() << " - health of " << evil.getName() << endl;
 }
 void Fight( Evil& evil, Player& firstPlayer, ForeignStudent& classchoice) {
+	cout << evil.getName() << " damage you!" << endl;
 	int hitDamage = firstPlayer.getHealth(&classchoice) - evil.getDamage();
-	firstPlayer.setHealth(&classchoice, hitDamage);
+	firstPlayer.setDynamicHealth(&classchoice, hitDamage);
+	cout << firstPlayer.getHealth(&classchoice) << " - your health now" << endl;
+	cout << "You fight back " << evil.getName() << endl;
+	int outDamage = evil.getHealth() - firstPlayer.getDamage(&classchoice);
+	evil.setHealth(outDamage);
+	cout << evil.getHealth() << " - health of " << evil.getName() << endl;
 }
 void Fight(Evil& evil, Player& firstPlayer,MaxKuprin& classchoice) {
+	cout << evil.getName() << " damage you!" << endl;
 	int hitDamage = firstPlayer.getHealth(&classchoice) - evil.getDamage();
-	firstPlayer.setHealth(&classchoice, hitDamage);
+	firstPlayer.setDynamicHealth(&classchoice, hitDamage);
+	cout << firstPlayer.getHealth(&classchoice) << " - your health now" << endl;
+	cout << "You fight back " << evil.getName() << endl;
+	int outDamage = evil.getHealth() - firstPlayer.getDamage(&classchoice);
+	evil.setHealth(outDamage);
+	cout << evil.getHealth() << " - health of " << evil.getName() << endl;
 }
 
 int main() {
@@ -39,7 +57,7 @@ int main() {
 	MaxKuprin maxKuprin;
 	Player firstPlayer;
 	NPC npc;
-	Evil evil;
+	Evil evil("Input control",100,5);
 	/*cout << "Hello, student \nGet rest beside the fire\n";
 	cout << "You are one of the heroes, I guess?\n";
 	cout << "Do you remember your story?\n";
@@ -61,8 +79,11 @@ int main() {
 		}
 	}
 	*/
+	cout << "Welcome, dear player. Let's get started!";
+	Sleep(500);
 	cout << "Who are you?\n";
 	cout << "(1 - Basic Student 2 - Zaochnik 3 - ForeignStudent 4 - MaxKuprin)\n";
+	Sleep(500);
 	int choice;
 	NPC* currClass = nullptr;
 	cin >> choice;
@@ -98,6 +119,7 @@ int main() {
 	
 	firstPlayer.getInfo(currClass);
 	cout << "What guild are you from?\n 1 - StudClub  2 - ProfCom  3 - ActiveGroup \t";
+	Sleep(1000);
 	int group;
 	cin >> group;
 
@@ -124,7 +146,7 @@ int main() {
 	//firstPlayer.healthUpdate();
 	firstPlayer.getInfo(currClass);
 	evil.getInfo();
-	cout << "Get ready for first fight!\nIt's incoming control!";
+	cout << "Get ready for first fight!\nIt's input control!";
 	while (evil.getHealth() > 0) {
 		if (choice == 1) {
 			Fight(evil, firstPlayer, student);
@@ -137,9 +159,10 @@ int main() {
 		}if (choice == 4) {
 			Fight(evil, firstPlayer, maxKuprin);
 		}
+		Sleep(1000);
 	}
 
-	firstPlayer.lvlUP(currClass,2);
+	firstPlayer.lvlUP(currClass,1);
 	firstPlayer.healthUpdate(currClass);
 	/*if (choice == 1) {
 		Fight(evil, firstPlayer, student);

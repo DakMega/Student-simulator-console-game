@@ -36,11 +36,11 @@ public:
 		dynamicHealth = 100;
 	}
 	virtual void getInfo() {
-		/*cout << "**************************" << endl;
+		cout << "**************************" << endl;
 		cout << "Hello " << name << endl;
 		cout << " Your damage = " << damage << endl;
 		cout << " Your health = " << health << endl;
-		cout << "**************************" << endl;*/
+		cout << "**************************" << endl;
 	}
 	int getHealth() {
 		return dynamicHealth;
@@ -70,7 +70,7 @@ public:
 	virtual void create() {} //прототипная функция
 	~NPC() {}
 };
-class Warrior : virtual public Player {
+class Warrior : virtual public NPC {
 private:
 	int strength;
 public:
@@ -112,7 +112,7 @@ public:
 	~Warrior() {
 	}
 };
-class Wizard : virtual public Player {
+class Wizard : virtual public NPC {
 private:
 	int mana;
 public:
@@ -164,7 +164,7 @@ public:
 	~Wizard() {
 	}
 };
-class Programmer : virtual public Player {
+class Programmer : virtual public NPC {
 private:
 	int skill;
 	int age;
@@ -269,6 +269,9 @@ public:
 	int getDamage(){
 		return damage;
 	}
+	void setHealth(int DeltaHealth) {
+		this->health = DeltaHealth;
+	}
 	~Evil(){
 	}
 };
@@ -286,20 +289,13 @@ public:
 	void setDamage(NPC* player, int value) {
 		player->setDamage(value);
 	}
-	/*void getInfo(NPC* player) {
+	void getInfo(NPC* player) {
 		player->getInfo();
-	}*/
+	}
 	int getDamage(NPC* player) {
 		return player->getDamage();
 	}
 	int getHealth(NPC* player) {
 		return player->getHealth();
-	}
-	virtual void getInfo() {
-		cout << "**************************" << endl;
-		cout << "Hello " << name << endl;
-		cout << " Your damage = " << damage << endl;
-		cout << " Your health = " << health << endl;
-		cout << "**************************" << endl;
 	}
 };

@@ -2,9 +2,7 @@
 #include <set>
 #include <cmath>
 #include "class.h"
-#include "playableClasses.h"
 #include <fstream>
-#include "evil.h"
 using namespace std;
 
 void Fight( Evil& evil, Player& firstPlayer, Student& classchoice) {

@@ -8,6 +8,10 @@
 #include <stdlib.h>
 
 using namespace std;
+
+
+
+
 void death() {
 	abort();
 }
@@ -71,9 +75,6 @@ void Fight(Evil& evil, Player& firstPlayer,MaxKuprin& classchoice) {
 int main() {
 	srand(time(nullptr));
 
-	string src = "save.txt";
-	ifstream fin;
-	ofstream fout;
 	Student student;
 	Zaochnik zaochnik;
 	ForeignStudent foreignStudent;
@@ -82,12 +83,26 @@ int main() {
 	NPC npc;
 	Evil evil("Input control", 100, 5);
 
+	//write
+	/*ofstream outFile;
+	outFile.open("C:\\Users\\DakMega\\Desktop\\save.txt", ios::app);
+	outFile.write((char*)&firstPlayer, sizeof(firstPlayer));
+	outFile.close();*/
+	//store
+	/*ifstream inFile;
+	inFile.open("C:\\Users\\DakMega\\Desktop\\save.txt", ios::in);
+	inFile.seekg(0);
+	inFile.read((char*)&firstPlayer, sizeof(firstPlayer));
+	inFile.close();*/
+
+
+
 	cout << "Welcome, dear player. Let's get started!";
 	Sleep(500);
 	cout << "Who are you?\n";
 	cout << "(1 - Basic Student 2 - Zaochnik 3 - ForeignStudent 4 - MaxKuprin)\n";
 	Sleep(500);
-	int choice;
+	int choice;//{
 	NPC* currClass = nullptr;
 	cin >> choice;
 	switch (choice) {
@@ -162,7 +177,8 @@ int main() {
 		}
 		if (choice == 3) {
 			Fight(evil, firstPlayer, foreignStudent);
-		}if (choice == 4) {
+		}
+		if (choice == 4) {
 			Fight(evil, firstPlayer, maxKuprin);
 		}
 		if (evil.getHealth() == 0) {
@@ -214,7 +230,8 @@ int main() {
 		}
 		if (choice == 3) {
 			Fight(evil2, firstPlayer, foreignStudent);
-		}if (choice == 4) {
+		}
+		if (choice == 4) {
 			Fight(evil2, firstPlayer, maxKuprin);
 		}
 		if (evil2.getHealth() == 0) {
@@ -260,7 +277,8 @@ int main() {
 		}
 		if (choice == 3) {
 			Fight(evil3, firstPlayer, foreignStudent);
-		}if (choice == 4) {
+		}
+		if (choice == 4) {
 			Fight(evil3, firstPlayer, maxKuprin);
 		}
 		if (evil3.getHealth() == 0) {
@@ -309,7 +327,8 @@ int main() {
 		}
 		if (choice == 3) {
 			Fight(evil4, firstPlayer, foreignStudent);
-		}if (choice == 4) {
+		}
+		if (choice == 4) {
 			Fight(evil4, firstPlayer, maxKuprin);
 		}
 		if (evil4.getHealth() == 0) {
@@ -321,7 +340,7 @@ int main() {
 	firstPlayer.getInfo(currClass);
 	cout << "Wow! Congratulations! You still alive! You won!";
 
-
+	//delete choice;//}
 
 	return 0;
 }

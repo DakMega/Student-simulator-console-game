@@ -42,6 +42,12 @@ public:
 		cout << "**************************\n" << endl;
 		Sleep(500);
 	}
+	void setName() {
+		cin >> this->name;
+	}
+	string getName() {
+		return this->name;
+	}
 	int getHealth() {
 		return dynamicHealth;
 	}
@@ -124,7 +130,7 @@ public:
 	void create() override {
 		cout << "You are created Student" << endl;
 		cout << "What is your name? " << endl;
-		cin >> name;
+		setName();
 		getInfo();
 		getTool();
 	}
@@ -169,7 +175,7 @@ public:
 	void create() override {
 		cout << "You are created Zaochnik" << endl;
 		cout << "What is your name? " << endl;
-		cin >> name;
+		setName();
 		getInfo();
 		useTrick();
 		cout << "Your weakness = " << weakness << endl;
@@ -219,7 +225,7 @@ public:
 	void create() override {
 		cout << "You created Foreign Student" << endl;
 		cout << "What is your name? " << endl;
-		cin >> name;
+		setName();
 		getInfo();
 		useTrick();
 	}
@@ -238,7 +244,7 @@ public:
 	void create() override {
 		cout << "You've created Max Kuprin" << endl;
 		cout << "What is your name? " << endl;
-		cin >> name;
+		setName();
 		getInfo();
 		getTool();
 		useTrick();
@@ -330,5 +336,8 @@ public:
 	}
 	void useTrick(ForeignStudent* player) {
 		player->useTrick();
+	}
+	string getName(NPC* player) {
+		player->getName();
 	}
 };

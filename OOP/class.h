@@ -128,7 +128,7 @@ public:
 		this->damage = (log(i+1)+1) * damage;
 	}
 	void create() override {
-		cout << "You are created Student" << endl;
+		cout << "You created Student" << endl;
 		cout << "What is your name? " << endl;
 		setName();
 		getInfo();
@@ -173,7 +173,7 @@ public:
 		this->damage = (log(i + 1) + 1) * damage;
 	}
 	void create() override {
-		cout << "You are created Zaochnik" << endl;
+		cout << "You created Zaochnik" << endl;
 		cout << "What is your name? " << endl;
 		setName();
 		getInfo();
@@ -242,7 +242,7 @@ public:
 
 	}
 	void create() override {
-		cout << "You've created Max Kuprin" << endl;
+		cout << "You created Max Kuprin" << endl;
 		cout << "What is your name? " << endl;
 		setName();
 		getInfo();

@@ -9,7 +9,6 @@
 
 using namespace std;
 
-
 void death() {
 	abort();
 }
@@ -85,7 +84,7 @@ int main() {
 
 
 
-	cout << "Student life simulator. ver beta 0.3.0.\n*******************\nWelcome, dear player. Let's get started!"<< endl;
+	cout << "Student life simulator. ver beta 0.3.0.\n*******************\nWelcome, dear player. Let's get started!\n*******************\n"<< endl;
 	Sleep(500);
 	cout << "Now you can feel all sides of student life at every event!\n You can use tools or tricks - that depend on type of your student" << endl;
 	Sleep(500);
@@ -93,7 +92,7 @@ int main() {
 	Sleep(500);
 	cout << "Who are you?\n";
 	cout << "[1 - Basic Student 2 - Zaochnik 3 - ForeignStudent 4 - MaxKuprin]\n"<<endl;
-	cout << "Basic student - usual dweller of university. \nZaochnik - appearing in evenings.\nForeighn sudent - student, which came to us from far. \nKuprin - Just unical one\nSo, choose wisely" << endl;;
+	cout << "\n@ Basic student - usual dweller of university. \n\n@ Zaochnik - appearing in evenings.\n\n@ Foreighn sudent - student, which came to us from far. \n\n@ Kuprin - Just unical one\nSo, choose wisely\n" << endl;;
 	Sleep(500);
 		
 	cin >> choice;
@@ -331,8 +330,6 @@ int main() {
 
 	firstPlayer.getInfo(currClass);
 	cout << "Wow! Congratulations! You still alive! You won!";
-
-	//delete choice;//}
 
 	return 0;
 }

@@ -85,8 +85,13 @@ int main() {
 	string path = "save.txt";
 	
 
-
-	cout << "Student life simulator. ver beta 0.3.0.\n*******************\nWelcome, dear player. Let's get started!\n*******************\n"<< endl;
+	cout << " __  _____         ___  __    __  _____   __   _____               __    _   _____  ___  __  " << endl;
+	cout << "/ _\\/__   \\/\\ /\\  /   \\/__\\/\\ \\ \\/__   \\ / _\\  \\_   \\/\\/\\  /\\ /\\  / /   /_\\ /__   \\/___\\/__\\ " << endl;
+	cout << "\\ \\   / /\\/ / \\ \\/ /\\ /_\\ /  \\/ /  / /\\/ \\ \\    / /\\/    \\/ / \\ \\/ /   //_\\\\  / /\\//  // \\// " << endl;
+	cout << "_\\ \\ / /  \\ \\_/ / /_///__/ /\\  /  / /    _\\ \\/\\/ /_/ /\\/\\ \\ \\_/ / /___/  _  \\/ / / \\_// _  \\ " << endl;
+	cout << "\\__/ \\/    \\___/___,'\\__/\\_\\ \\/   \\/     \\__/\\____/\\/    \\/\\___/\\____/\\_/ \\_/\\/  \\___/\\/ \\_/" << endl;
+	cout << "                                                                                             " << endl;
+	cout << "Student life simulator. ver beta 1.1.0.\n*******************\nWelcome, dear player. Let's get started!\n*******************\n"<< endl;
 	Sleep(500);
 	cout << "Now you can feel all sides of student life at every event!\n You can use tools or tricks - that depend on type of your student" << endl;
 	Sleep(500);
@@ -364,6 +369,11 @@ int main() {
 
 	firstPlayer.getInfo(currClass);
 	cout << "Wow! Congratulations! You still alive! You won!\n" << endl;;
-
+	cout << " _____        __     __    __  ___ " << endl;
+	cout << "/__   \\/\\  /\\/__\\   /__\\/\\ \\ \\/   \\" << endl;
+	cout << "  / /\\/ /_/ /_\\    /_\\ /  \\/ / /\\ /" << endl;
+	cout << " / / / __  //__   //__/ /\\  / /_// " << endl;
+	cout << " \\/  \\/ /_/\\__/   \\__/\\_\\ \\/___,'  " << endl;
+	cout << "                                   " << endl;
 	return 0;
 }

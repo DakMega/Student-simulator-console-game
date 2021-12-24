@@ -46,7 +46,7 @@ public:
 		cin >> this->name;
 	}
 	string getName() {
-		return this->name;
+		return name;
 	}
 	int getHealth() {
 		return dynamicHealth;
@@ -65,10 +65,10 @@ public:
 	}
 	void healthUpdate() {
 		cout << "\n**************************" << endl;
-		bool doHill;
+		bool* doHill = new bool;
 		cout << "\n Do you want to get rest on your favourite sofa? 0 - no 1 - yes."<<endl;
-		cin >> doHill;
-		if (doHill) {
+		cin >> *doHill;
+		if (*doHill) {
 			while (this->dynamicHealth < this->health) {
 				Sleep(500);
 				this->dynamicHealth += 0.1 * (this->health);
@@ -79,6 +79,8 @@ public:
 				Sleep(500);
 			}
 		}
+		delete doHill;
+		doHill = nullptr;
 	}
 	void lvlUP(int value) {
 		Sleep(500);
@@ -113,19 +115,22 @@ public:
 		Sleep(500);
 		cout << "Tools list: " << endl;
 		Sleep(500);
-		int i = 0;
-		for (; i < lvl; i++) {
-			cout << i << " - " << tools[i] << endl;
+		int* i = new int;
+		*i = 0;
+		for (; *i < lvl; (*i)++) {
+			cout << *i << " - " << tools[*i] << endl;
 		}
 		cout << "Select your tool \t";
-		cin >> i;
-		while (i >= lvl) {
+		cin >> *i;
+		while ((*i) >= lvl) {
 			cout << " This tool is unavailiable" << endl;
 			cout << "Select other one" << endl;
-			cin >> i;
+			cin >> *i;
 		}
-		cout << name << " get " << tools[i] << endl;
-		this->damage = (log(i+1)+1) * damage;
+		cout << name << " get " << tools[*i] << endl;
+		this->damage = (log((*i)+1)+1) * damage;
+		delete i;
+		i = nullptr;
 	}
 	void create() override {
 		cout << "You created Student" << endl;
@@ -158,19 +163,22 @@ public:
 		Sleep(500);
 		cout << "Tricks list: " << endl;
 		Sleep(500);
-		int i = 0;
-		for (; i < lvl; i++) {
-			cout << i << " - " << trick[i] << endl;
+		int *i = new int;
+		*i = 0;
+		for (; *i < lvl; (*i)++) {
+			cout << *i << " - " << trick[*i] << endl;
 		}
 		cout << "Select your trick \t";
-		cin >> i;
-		while (i >= lvl) {
+		cin >> *i;
+		while (*i >= lvl) {
 			cout << " This tool is unavailiable" << endl;
 			cout << "Select other one" << endl;
-			cin >> i;
+			cin >> *i;
 		}
-		cout << name << " get " << trick[i] << endl;
-		this->damage = (log(i + 1) + 1) * damage;
+		cout << name << " get " << trick[*i] << endl;
+		this->damage = (log((*i) + 1) + 1) * damage;
+		delete i;
+		i = nullptr;
 	}
 	void create() override {
 		cout << "You created Zaochnik" << endl;
@@ -208,19 +216,22 @@ public:
 		Sleep(500);
 		cout << "Tricks list: " << endl;
 		Sleep(500);
-		int i = 0;
-		for (; i < lvl; i++) {
-			cout << i << " - " << trick[i] << endl;
+		int* i = new int;
+		*i = 0;
+		for (; *i < lvl; (*i)++) {
+			cout << *i << " - " << trick[*i] << endl;
 		}
 		cout << "Select your trick \t";
-		cin >> i;
-		while (i >= lvl) {
+		cin >> *i;
+		while (*i >= lvl) {
 			cout << " This tool is unavailiable" << endl;
 			cout << "Select other one" << endl;
-			cin >> i;
+			cin >> *i;
 		}
-		cout << name << " get " << trick[i] << endl;
-		this->damage = (log(i + 1) + 1) * damage;
+		cout << name << " get " << trick[*i] << endl;
+		this->damage = (log((*i) + 1) + 1) * damage;
+		delete i;
+		i = nullptr;
 	}
 	void create() override {
 		cout << "You created Foreign Student" << endl;

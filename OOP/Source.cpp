@@ -79,9 +79,11 @@ int main() {
 	Player firstPlayer;
 	NPC npc;
 	Evil evil("Input control", 100, 5);
-	int choice;
+	int *choice = new int;
 	NPC* currClass = nullptr;
-
+	
+	string path = "save.txt";
+	
 
 
 	cout << "Student life simulator. ver beta 0.3.0.\n*******************\nWelcome, dear player. Let's get started!\n*******************\n"<< endl;
@@ -95,8 +97,8 @@ int main() {
 	cout << "\n@ Basic student - usual dweller of university. \n\n@ Zaochnik - appearing in evenings.\n\n@ Foreighn sudent - student, which came to us from far. \n\n@ Kuprin - Just unical one\nSo, choose wisely\n" << endl;;
 	Sleep(500);
 		
-	cin >> choice;
-	switch (choice) {
+	cin >> *choice;
+	switch (*choice) {
 		case 1: {
 			firstPlayer.create(&student);
 			currClass = &student;
@@ -124,10 +126,10 @@ int main() {
 	firstPlayer.getInfo(currClass);
 	cout << "What association are you from?\n 1 - StudClub  2 - ProfCom  3 - ActiveGroup \t";
 	Sleep(1000);
-	int group;
-	cin >> group;
+	int *group = new int;
+	cin >> *group;
 
-	switch (group) {
+	switch (*group) {
 		case 1: {
 			cout << "30% damage increase" << endl;
 			firstPlayer.setDamage(currClass, (firstPlayer.getDamage(currClass) * 1.3));
@@ -147,28 +149,54 @@ int main() {
 		}
 
 	}
-	
+	delete group;
+	group = nullptr;
+	//fstream fs;
+	//fs.open(path, fstream::in | fstream::out | fstream::app);
+	//if (!fs.is_open()) {
+	//	cout << "reading error!" << endl;
+	//}
+	//else {
+	//	string message;
+	//	int swtch;
+	//	cout << "file opened" << endl;
+	//	cout << "Input 0 to store, 1 to read" << endl;
+	//	cin >> swtch;
+	//	if (swtch == 0) {
+	//		cout << "input message" << endl;;
+	//		fs << firstPlayer.getName(currClass) << "\n";
+	//	}
+	//	if (swtch == 1) {
+	//		while (!fs.eof()) {
+	//			message = "";
+	//			fs >> message;
+	//			cout << message << endl;
+	//		}
+	//	}
+	//}
+
+
 
 	firstPlayer.getInfo(currClass);
 	evil.getInfo();
 
 	Sleep(100);
 
-	cout << "****\nGet ready for first fight!\nIt's input control!\n****";
+	cout << "\n****\nGet ready for first fight!\nIt's input control!\n****\n";
 
 	Sleep(1000);
 
 	while (evil.getHealth() > 0) {
-		if (choice == 1) {
+		if (*choice == 1) {
 			Fight(evil, firstPlayer, student);
 		}
-		if (choice == 2) {
+		if (*choice == 2) {
 			Fight(evil, firstPlayer, zaochnik);
 		}
-		if (choice == 3) {
+		if (*choice == 3) {
 			Fight(evil, firstPlayer, foreignStudent);
 		}
-		if (choice == 4) {
+		if (*choice == 4) {
 			Fight(evil, firstPlayer, maxKuprin);
 		}
 		if (evil.getHealth() == 0) {
@@ -190,16 +218,16 @@ int main() {
 	firstPlayer.getInfo(currClass);
 	evil2.getInfo();
 
-	if (choice == 1) {
+	if (*choice == 1) {
 		firstPlayer.getTool(&student);
 	}
-	if (choice == 2) {
+	if (*choice == 2) {
 		firstPlayer.useTrick(&zaochnik);
 	}
-	if (choice == 3) {
+	if (*choice == 3) {
 		firstPlayer.useTrick(&foreignStudent);
 	}
-	if (choice == 4) {
+	if (*choice == 4) {
 		bool rndSelect = rand() % 1;
 		if (rndSelect = 0) {
 			firstPlayer.useTrick(&maxKuprin);
@@ -213,16 +241,16 @@ int main() {
 	Sleep(1000);
 
 	while (evil2.getHealth() > 0) {
-		if (choice == 1) {
+		if (*choice == 1) {
 			Fight(evil2, firstPlayer, student);
 		}
-		if (choice == 2) {
+		if (*choice == 2) {
 			Fight(evil2, firstPlayer, zaochnik);
 		}
-		if (choice == 3) {
+		if (*choice == 3) {
 			Fight(evil2, firstPlayer, foreignStudent);
 		}
-		if (choice == 4) {
+		if (*choice == 4) {
 			Fight(evil2, firstPlayer, maxKuprin);
 		}
 		if (evil2.getHealth() == 0) {
@@ -237,16 +265,16 @@ int main() {
 	firstPlayer.getInfo(currClass);
 	evil3.getInfo();
 
-	if (choice == 1) {
+	if (*choice == 1) {
 		firstPlayer.getTool(&student);
 	}
-	if (choice == 2) {
+	if (*choice == 2) {
 		firstPlayer.useTrick(&zaochnik);
 	}
-	if (choice == 3) {
+	if (*choice == 3) {
 		firstPlayer.useTrick(&foreignStudent);
 	}
-	if (choice == 4) {
+	if (*choice == 4) {
 		bool rndSelect = rand() % 1;
 		if (rndSelect = 0) {
 			firstPlayer.useTrick(&maxKuprin);
@@ -260,16 +288,16 @@ int main() {
 	Sleep(1000);
 
 	while (evil3.getHealth() > 0) {
-		if (choice == 1) {
+		if (*choice == 1) {
 			Fight(evil3, firstPlayer, student);
 		}
-		if (choice == 2) {
+		if (*choice == 2) {
 			Fight(evil3, firstPlayer, zaochnik);
 		}
-		if (choice == 3) {
+		if (*choice == 3) {
 			Fight(evil3, firstPlayer, foreignStudent);
 		}
-		if (choice == 4) {
+		if (*choice == 4) {
 			Fight(evil3, firstPlayer, maxKuprin);
 		}
 		if (evil3.getHealth() == 0) {
@@ -282,44 +310,47 @@ int main() {
 
 	Sleep(100);
 
-	cout << "\nOH NO! The very large SUETA is coming - its SESSION! Just try to stay alive!!!";
+	cout << "\nOH NO! The very large SUETA is coming - its SESSION! \nJust try to stay alive!!!";
 	Evil evil4("SESSION", 1500, 100);
 	firstPlayer.getInfo(currClass);
 	evil4.getInfo();
 
-	if (choice == 1) {
+	if (*choice == 1) {
 		firstPlayer.getTool(&student);
 	}
-	if (choice == 2) {
+	if (*choice == 2) {
 		firstPlayer.useTrick(&zaochnik);
 	}
-	if (choice == 3) {
+	if (*choice == 3) {
 		firstPlayer.useTrick(&foreignStudent);
 	}
-	if (choice == 4) {
-		bool rndSelect = rand() % 1;
+	if (*choice == 4) {
+		bool *rndSelect = new bool;
+		*rndSelect = rand() % 1;
 		if (rndSelect = 0) {
 			firstPlayer.useTrick(&maxKuprin);
 		}
 		else {
 			firstPlayer.getTool(&maxKuprin);
 		}
+		delete rndSelect;
+		rndSelect = nullptr;
 
 	}
 
 	Sleep(1000);
 
 	while (evil4.getHealth() > 0) {
-		if (choice == 1) {
+		if (*choice == 1) {
 			Fight(evil4, firstPlayer, student);
 		}
-		if (choice == 2) {
+		if (*choice == 2) {
 			Fight(evil4, firstPlayer, zaochnik);
 		}
-		if (choice == 3) {
+		if (*choice == 3) {
 			Fight(evil4, firstPlayer, foreignStudent);
 		}
-		if (choice == 4) {
+		if (*choice == 4) {
 			Fight(evil4, firstPlayer, maxKuprin);
 		}
 		if (evil4.getHealth() == 0) {
@@ -327,9 +358,12 @@ int main() {
 		}
 		Sleep(1000);
 	}
+	
+	delete choice;
+	choice = nullptr;
 
 	firstPlayer.getInfo(currClass);
-	cout << "Wow! Congratulations! You still alive! You won!";
+	cout << "Wow! Congratulations! You still alive! You won!\n" << endl;;
 
 	return 0;
 }

@@ -10,8 +10,6 @@
 using namespace std;
 
 
-
-
 void death() {
 	abort();
 }
@@ -82,82 +80,75 @@ int main() {
 	Player firstPlayer;
 	NPC npc;
 	Evil evil("Input control", 100, 5);
-
-	//write
-	/*ofstream outFile;
-	outFile.open("C:\\Users\\DakMega\\Desktop\\save.txt", ios::app);
-	outFile.write((char*)&firstPlayer, sizeof(firstPlayer));
-	outFile.close();*/
-	//store
-	/*ifstream inFile;
-	inFile.open("C:\\Users\\DakMega\\Desktop\\save.txt", ios::in);
-	inFile.seekg(0);
-	inFile.read((char*)&firstPlayer, sizeof(firstPlayer));
-	inFile.close();*/
+	int choice;
+	NPC* currClass = nullptr;
 
 
 
-	cout << "Welcome, dear player. Let's get started!";
+	cout << "Student life simulator. ver beta 0.3.0.\n*******************\nWelcome, dear player. Let's get started!"<< endl;
+	Sleep(500);
+	cout << "Now you can feel all sides of student life at every event!\n You can use tools or tricks - that depend on type of your student" << endl;
+	Sleep(500);
+	cout << "Tools and tricks can upgrade your ability to fight with every event. You will find new feachures with every lvl-up.\nJoining to every association can give you peculiarities." << endl;
 	Sleep(500);
 	cout << "Who are you?\n";
-	cout << "(1 - Basic Student 2 - Zaochnik 3 - ForeignStudent 4 - MaxKuprin)\n";
+	cout << "[1 - Basic Student 2 - Zaochnik 3 - ForeignStudent 4 - MaxKuprin]\n"<<endl;
+	cout << "Basic student - usual dweller of university. \nZaochnik - appearing in evenings.\nForeighn sudent - student, which came to us from far. \nKuprin - Just unical one\nSo, choose wisely" << endl;;
 	Sleep(500);
-	int choice;//{
-	NPC* currClass = nullptr;
+		
 	cin >> choice;
 	switch (choice) {
-	case 1: {
-		firstPlayer.create(&student);
-		currClass = &student;
-		break;
-	}
+		case 1: {
+			firstPlayer.create(&student);
+			currClass = &student;
+			break;
+		}
 
-	case 2: {
-		firstPlayer.create(&zaochnik);
-		currClass = &zaochnik;
-		break;
-	}
+		case 2: {
+			firstPlayer.create(&zaochnik);
+			currClass = &zaochnik;
+			break;
+		}
 
-	case 3: {
-		firstPlayer.create(&foreignStudent);
-		currClass = &foreignStudent;
-		break;
-	}
-	case 4: {
-		firstPlayer.create(&maxKuprin);
-		currClass = &maxKuprin;
-		break;
-	}
-	}
+		case 3: {
+			firstPlayer.create(&foreignStudent);
+			currClass = &foreignStudent;
+			break;
+		}
+		case 4: {
+			firstPlayer.create(&maxKuprin);
+			currClass = &maxKuprin;
+			break;
+		}
+		}
 
 	firstPlayer.getInfo(currClass);
-	cout << "What guild are you from?\n 1 - StudClub  2 - ProfCom  3 - ActiveGroup \t";
+	cout << "What association are you from?\n 1 - StudClub  2 - ProfCom  3 - ActiveGroup \t";
 	Sleep(1000);
 	int group;
 	cin >> group;
 
 	switch (group) {
-	case 1: {
-		cout << "30% damage increase" << endl;
-		firstPlayer.setDamage(currClass, (firstPlayer.getDamage(currClass) * 1.3));
-		break;
-	}
-	case 2: {
-		cout << "50% health increase and 20% damage decrease" << endl;
-		firstPlayer.setHealth(currClass, (firstPlayer.getHealth(currClass) * 1.5));
-		firstPlayer.setDamage(currClass, (firstPlayer.getDamage(currClass) * 0.8));
-		break;
-	}
-	case 3: {
-		cout << "10% health increase and 10% damage increase" << endl;
-		firstPlayer.setDamage(currClass, (firstPlayer.getDamage(currClass) * 1.1));
-		firstPlayer.setHealth(currClass, (firstPlayer.getHealth(currClass) * 1.1));
-		break;
-	}
+		case 1: {
+			cout << "30% damage increase" << endl;
+			firstPlayer.setDamage(currClass, (firstPlayer.getDamage(currClass) * 1.3));
+			break;
+		}
+		case 2: {
+			cout << "50% health increase and 20% damage decrease" << endl;
+			firstPlayer.setHealth(currClass, (firstPlayer.getHealth(currClass) * 1.5));
+			firstPlayer.setDamage(currClass, (firstPlayer.getDamage(currClass) * 0.8));
+			break;
+		}
+		case 3: {
+			cout << "10% health increase and 10% damage increase" << endl;
+			firstPlayer.setDamage(currClass, (firstPlayer.getDamage(currClass) * 1.1));
+			firstPlayer.setHealth(currClass, (firstPlayer.getHealth(currClass) * 1.1));
+			break;
+		}
 
 	}
-
-
+	
 
 	firstPlayer.getInfo(currClass);
 	evil.getInfo();
@@ -192,7 +183,8 @@ int main() {
 	Sleep(100);
 
 
-	cout << "****\nNow, the time is come... fight against the attestation!\n****" << endl;
+
+	cout << "****\nNow, the time is come... \nfight against the Attestation!\n****" << endl;
 	Sleep(100);
 	Evil evil2("Attestation", 500, 10);
 
@@ -241,7 +233,7 @@ int main() {
 	}
 	firstPlayer.healthUpdate(currClass);
 	Sleep(100);
-	cout << "****\nTime has been gone... Danger! The big Zachet is coming with scary AMOGUS sounds!\n****" << endl;
+	cout << "****\nTime has been gone... Danger! \nThe big Zachet is coming with scary AMOGUS sounds!\n****" << endl;
 	Evil evil3("Zachet", 700, 25);
 	firstPlayer.getInfo(currClass);
 	evil3.getInfo();

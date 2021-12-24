@@ -178,7 +178,7 @@ public:
 		setName();
 		getInfo();
 		useTrick();
-		cout << "Your weakness = " << weakness << endl;
+		//cout << "Your weakness = " << weakness << endl;
 	}
 	int getWeakness() {
 		return weakness;
@@ -274,8 +274,8 @@ public:
 		Sleep(500);
 		cout << "\n**************************" << endl;
 		cout << "You're meet " << name << endl;
-		cout << "Damage of enemy = " << damage << endl;
-		cout << "Health of enemy = " << health << endl;
+		cout << "Damage of event = " << damage << endl;
+		cout << "Volume of event = " << health << endl;
 		cout << "\n**************************" << endl;
 		Sleep(500);
 	}
